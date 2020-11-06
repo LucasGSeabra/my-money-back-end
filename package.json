@@ -1,0 +1,24 @@
+{
+  "name": "money-app",
+  "version": "1.0.0",
+  "main": "src/loader.js",
+  "scripts": {
+    "dev": "nodemon",
+    "production": "pm2 start src/loader.js --name money-app"
+  },
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-query-int": "^3.0.0",
+    "loadash": "^1.0.0",
+    "mongoose": "^5.10.12",
+    "mongoose-paginate": "^5.0.3",
+    "node-restful": "^0.2.6",
+    "pm2": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
