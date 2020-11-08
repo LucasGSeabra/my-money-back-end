@@ -1,7 +1,10 @@
 import billingCycle from './billingCycle.js'
+import errorHandler from '../common/errorHandler.js'
 
 billingCycle.methods(['get', 'post', 'put', 'delete'])
 billingCycle.updateOptions({ new: true, runValidators: true })
+billingCycle.after('post', errorHandler).after('put', errorHandler)
+
 billingCycle.route('count', (req, res, next) => {
     billingCycle.count((error, value) => {
         if(error) {
