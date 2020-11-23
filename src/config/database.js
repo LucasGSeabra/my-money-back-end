@@ -1,7 +1,9 @@
 import mongoose from 'mongoose'
 
-mongoose.Promise = global.Promise
+async function connectDB() {
+    mongoose.Promise = global.Promise
+    await mongoose.connect(process.env.DB_URI, {useNewUrlParser: true})
+    return mongoose
+}
 
-mongoose.connect(uri, {useNewUrlParser: true})
-
-export default mongoose
+export default connectDB
