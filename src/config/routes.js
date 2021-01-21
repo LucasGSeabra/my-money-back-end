@@ -1,11 +1,13 @@
 import express from 'express'
+import auth from './auth.js'
+import billingCycleService from '../api/billingCycle/billingCycleService.js'
 import billingCycle from '../api/billingCycle/billingCycleService.js'
 
 function routes(server) {
-    const router = express.Router()
-    server.use('/api', router)
-
-    billingCycle.register(router,'/billingCycles')
+    const protectedApi = express.Router()
+    server.use('/api', protectedApi)
+    protectedApi.use(auth)
+    billingCycleService.register(protectedApi, '/billingCycles')
 
 }
 
